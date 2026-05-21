@@ -1,46 +1,145 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Temperature Converter</title>
+    <title>zain</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg,#4facfe,#00f2fe);
+            overflow:hidden;
+        }
+
+        .container {
+            width: 430px;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(12px);
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity:0;
+                transform:translateY(25px);
+            }
+            to {
+                opacity:1;
+                transform:translateY(0);
+            }
+        }
+
+        .icon {
+            font-size:50px;
+            text-align:center;
+            margin-bottom:10px;
+        }
+
+        h2 {
+            text-align:center;
+            color:white;
+            margin-bottom:25px;
+        }
+
+        label {
+            color:white;
+            font-size:15px;
+            font-weight:600;
+        }
+
+        input,select {
+            width:100%;
+            padding:12px;
+            margin-top:8px;
+            margin-bottom:18px;
+            border:none;
+            border-radius:10px;
+            font-size:14px;
+            outline:none;
+        }
+
+        input:focus,
+        select:focus {
+            transform:scale(1.02);
+            transition:0.3s;
+        }
+
+        .btn {
+            width:100%;
+            padding:13px;
+            border:none;
+            border-radius:10px;
+            background:linear-gradient(135deg,#ff6a00,#ee0979);
+            color:white;
+            font-size:16px;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        .btn:hover {
+            transform:scale(1.05);
+        }
+
+        .link {
+            display:block;
+            text-align:center;
+            margin-top:18px;
+            color:white;
+            text-decoration:none;
+            font-size:14px;
+        }
+
+        .link:hover {
+            color:yellow;
+        }
+
+    </style>
+
 </head>
 
-<body style="background-color: #e6f2ff; font-family: Arial;">
+<body>
 
-<div style="width: 400px; margin: auto; margin-top: 80px; 
-            background-color: white; padding: 25px; 
-            border-radius: 12px; box-shadow: 0px 0px 10px gray;">
+<div class="container">
 
-    <h2 style="color: #0066cc; text-align: center;">
-        Temperature Converter
-    </h2>
+    <div class="icon">🌡️</div>
+
+    <h2>Temperature Converter</h2>
 
     <form action="convert.jsp" method="post">
 
-        <label>Enter Temperature:</label><br>
-        <input type="text" name="temp" required 
-               style="width: 100%; padding: 8px; margin-top: 5px;"><br><br>
+        <label>Enter Temperature</label>
+        <input type="number" step="any" name="temp" required placeholder="Enter value">
 
-        <label>Convert To:</label><br>
-        <select name="type" style="width: 100%; padding: 8px;">
-            <option value="CtoF">Celsius to Fahrenheit</option>
-            <option value="FtoC">Fahrenheit to Celsius</option>
+        <label>Select Conversion</label>
+
+        <select name="type">
+            <option value="CtoF">Celsius → Fahrenheit</option>
+            <option value="FtoC">Fahrenheit → Celsius</option>
         </select>
 
-        <br><br>
+        <button class="btn" type="submit">
+            Convert Temperature
+        </button>
 
-        <input type="submit" value="Convert"
-               style="width: 100%; padding: 10px; 
-                      background-color: green; color: white; 
-                      border: none; border-radius: 5px;
-                      cursor: pointer;">
     </form>
 
-    <br>
-
-    <a href="multiplication.jsp" 
-       style="display: block; text-align: center; color: #0066cc;">
-        View Multiplication Table
+    <a class="link" href="multiplication.jsp">
+        ➗ Open Multiplication Table
     </a>
 
 </div>
